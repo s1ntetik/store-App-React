@@ -1,18 +1,13 @@
+import updateBookList from './book-list';
+import updateShoppingCart from './shoping-cart';
 
-const initialState = {
-  books: []
-};
 
-const reducer = (state = initialState, action) => {
+const reducer = (state, action) => {
 
-  switch (action.type) {
-    case 'BOOKS_LOADED':
-      return {
-        books: action.payload
-      };
-
-    default:
-      return state;
+  return {
+    bookList: updateBookList(state, action),
+    shoppingCart: updateShoppingCart(state, action),
+    gitLink: `https://github.com/s1ntetik/todoApp-React.git`
   }
 
 };
